@@ -22,6 +22,8 @@
     lens
     awscli2
     # Networking & Security
+    bettercap
+    mtr
     curl
     dig
     nmap
@@ -50,6 +52,7 @@
     # Apps
     bitwarden-desktop
     # Web
+    zapzap
     firefox
     google-chrome
   ];

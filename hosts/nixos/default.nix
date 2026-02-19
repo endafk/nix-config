@@ -114,6 +114,9 @@
     harfbuzz
   ];
 
+  # Make nix-ld libraries visible to Python dlopen() (numpy, pandas, etc.)
+  environment.variables.LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
+
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
