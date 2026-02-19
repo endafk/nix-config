@@ -11,11 +11,12 @@
     ripgrep
     jq
     neovim
-    
+    git
+    python
     # Term
     htop
     fastfetch
-    
+    btop    
     # Web
     firefox
     google-chrome
@@ -24,8 +25,8 @@
   # Basic Git Config
   programs.git = {
     enable = true;
-    userName = "dog";
-    userEmail = "change_me@example.com";
+    userName = "endafk";
+    userEmail = "254jaymz@gmail.com";
   };
 
   # Shell Config
