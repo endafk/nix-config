@@ -8,7 +8,33 @@
 
   # Bootloader (Standard systemd-boot)
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10; # keep last 10 generations
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 1; # 1 second boot menu
+
+  # Boot Splash (spinning NixOS logo)
+  boot.plymouth = {
+    enable = true;
+    theme = "nixos-bgrt";
+    themePackages = [ pkgs.nixos-bgrt-plymouth ];
+  };
+  boot.consoleLogLevel = 0;                          # suppress kernel messages
+  boot.initrd.verbose = false;                       # quiet initrd
+  boot.kernelParams = [ "quiet" "splash" "udev.log_level=3" ];
+
+  # ThinkPad T480s
+  services.thermald.enable = true;         # Intel thermal management
+  services.fwupd.enable = true;            # firmware updates via LVFS
+  hardware.bluetooth.enable = true;        # ThinkPad bluetooth
+  hardware.bluetooth.powerOnBoot = true;
+
+  # Nix Store Cleanup
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";                      # runs every week
+    options = "--delete-older-than 14d";   # remove generations older than 2 weeks
+  };
+  nix.settings.auto-optimise-store = true; # dedup the store via hard links
 
   # Networking
   networking.hostName = "nixos"; 
