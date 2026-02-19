@@ -12,7 +12,7 @@
     jq
     neovim
     git
-    python
+    python3
     # Term
     htop
     fastfetch
