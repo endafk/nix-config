@@ -50,6 +50,8 @@
     parabolic     # yt-dlp frontend
     gapless       # music player
     # Term
+    eza           # modern ls
+    bat           # modern cat
     htop
     lazydocker
     btop

@@ -20,20 +20,6 @@
     vimAlias = true;
   };
 
-  # Shared aliases (used by both bash and fish)
-  home.shellAliases = {
-    ll = "ls -la";
-    rebuild = "sudo nixos-rebuild switch --flake /home/dog/nix-config#nixos";
-    k = "kubectl";
-    kgp = "kubectl get pods";
-    kgs = "kubectl get svc";
-    kga = "kubectl get all";
-    kns = "kubectl config set-context --current --namespace";
-    tf = "terraform";
-    dc = "docker-compose";
-    dps = "docker ps";
-  };
-
   # Bash
   programs.bash.enable = true;
 
