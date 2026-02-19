@@ -117,6 +117,9 @@
   # Make nix-ld libraries visible to Python dlopen() (numpy, pandas, etc.)
   environment.variables.LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
 
+  # Firewall — open port 8080 for local dev servers
+  networking.firewall.allowedTCPPorts = [ 8080 ];
+
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
