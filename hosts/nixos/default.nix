@@ -61,7 +61,7 @@
   users.users.dog = {
     isNormalUser = true;
     description = "dog";
-    extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" ]; 
+    extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "adbusers" ]; 
   };
 
   # Docker
@@ -69,6 +69,9 @@
 
   # Wireshark (needs system-level group for packet capture)
   programs.wireshark.enable = true;
+
+  # Android USB (adb + fastboot with udev rules)
+  programs.adb.enable = true;
 
   # iPhone USB (usbmuxd + libimobiledevice)
   services.usbmuxd.enable = true;

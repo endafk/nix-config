@@ -37,6 +37,8 @@
     libimobiledevice  # ideviceinfo, idevicepair, etc.
     ifuse             # mount iPhone filesystem
     ideviceinstaller  # install/manage apps
+    scrcpy            # mirror & control Android screen over USB
+    heimdall          # flash firmware on Samsung devices
     file
     unzip
     p7zip
