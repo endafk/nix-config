@@ -70,6 +70,9 @@
   # Wireshark (needs system-level group for packet capture)
   programs.wireshark.enable = true;
 
+  # iPhone USB (usbmuxd + libimobiledevice)
+  services.usbmuxd.enable = true;
+
   # LocalSend (opens firewall port 53317 for discovery + transfer)
   programs.localsend.enable = true;
 
