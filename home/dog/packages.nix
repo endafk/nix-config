@@ -38,6 +38,7 @@
     ifuse             # mount iPhone filesystem
     ideviceinstaller  # install/manage apps
     scrcpy            # mirror & control Android screen over USB
+    android-tools     # adb + fastboot
     heimdall          # flash firmware on Samsung devices
     file
     unzip
