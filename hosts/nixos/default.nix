@@ -35,11 +35,14 @@
   users.users.dog = {
     isNormalUser = true;
     description = "dog";
-    extraGroups = [ "networkmanager" "wheel" "docker" ]; 
+    extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" ]; 
   };
 
   # Docker
   virtualisation.docker.enable = true;
+
+  # Wireshark (needs system-level group for packet capture)
+  programs.wireshark.enable = true;
 
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
