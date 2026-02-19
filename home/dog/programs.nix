@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Git
@@ -20,21 +20,37 @@
     vimAlias = true;
   };
 
-  # Shell
-  programs.bash = {
+  # Shared aliases (used by both bash and fish)
+  home.shellAliases = {
+    ll = "ls -la";
+    rebuild = "sudo nixos-rebuild switch --flake /home/dog/nix-config#nixos";
+    k = "kubectl";
+    kgp = "kubectl get pods";
+    kgs = "kubectl get svc";
+    kga = "kubectl get all";
+    kns = "kubectl config set-context --current --namespace";
+    tf = "terraform";
+    dc = "docker-compose";
+    dps = "docker ps";
+  };
+
+  # Bash
+  programs.bash.enable = true;
+
+  # Fish
+  programs.fish = {
     enable = true;
-    shellAliases = {
-      ll = "ls -la";
-      rebuild = "sudo nixos-rebuild switch --flake /home/dog/nix-config#nixos";
-      k = "kubectl";
-      kgp = "kubectl get pods";
-      kgs = "kubectl get svc";
-      kga = "kubectl get all";
-      kns = "kubectl config set-context --current --namespace";
-      tf = "terraform";
-      dc = "docker-compose";
-      dps = "docker ps";
-    };
+    plugins = [
+      {
+        name = "theme-lambda";
+        src = pkgs.fetchFromGitHub {
+          owner = "hasanozgan";
+          repo = "theme-lambda";
+          rev = "a7cb6dbaee9e9dcbe7fea02b92fc85fb2d278869";
+          sha256 = "1fc1h675gww2xd3jhm4iv2pki5k6j5nnyrmvfs943jx49r2xrhhs";
+        };
+      }
+    ];
   };
 
   # Direnv (auto-load .envrc per project)
