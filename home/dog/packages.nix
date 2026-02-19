@@ -9,6 +9,9 @@
     jq
     python3
     go
+    nodejs
+    yarn
+    pnpm
     # DevOps / SRE
     kubectl
     kubernetes-helm
