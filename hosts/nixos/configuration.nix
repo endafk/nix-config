@@ -15,12 +15,12 @@
   networking.networkmanager.enable = true;
 
   # Time & Locale
-  time.timeZone = "UTC"; # Change this later
+  time.timeZone = "Africa/Nairobi";
   i18n.defaultLocale = "en_US.UTF-8";
 
   # GNOME Desktop
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
   # Audio (Pipewire is the only correct choice)
@@ -38,6 +38,9 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ]; 
   };
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
@@ -48,7 +51,6 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    git
   ];
 
   system.stateVersion = "24.05"; 
