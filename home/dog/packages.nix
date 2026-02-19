@@ -34,6 +34,9 @@
     gnome-tweaks
     usbutils      # lsusb
     pciutils      # lspci
+    libimobiledevice  # ideviceinfo, idevicepair, etc.
+    ifuse             # mount iPhone filesystem
+    ideviceinstaller  # install/manage apps
     file
     unzip
     p7zip
