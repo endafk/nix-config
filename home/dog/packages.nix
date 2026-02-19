@@ -45,6 +45,7 @@
     gapless       # music player
     # Term
     htop
+    lazydocker
     btop
     fastfetch
     tmux
