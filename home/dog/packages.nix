@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # Dev
     vscode
+    antigravity
     ripgrep
     jq
     python3
@@ -17,11 +18,25 @@
     k9s
     lens
     awscli2
-    # Networking & Debug
+    # Networking & Security
     curl
     dig
     nmap
     traceroute
+    wifite2
+    wireshark
+    # System & USB
+    usbutils      # lsusb
+    pciutils      # lspci
+    file
+    unzip
+    p7zip
+    # Media
+    ffmpeg
+    vlc
+    obs-studio
+    parabolic     # yt-dlp frontend
+    gapless       # music player
     # Term
     htop
     btop
@@ -29,6 +44,8 @@
     tmux
     fzf
     yq-go
+    # Apps
+    bitwarden-desktop
     # Web
     firefox
     google-chrome
