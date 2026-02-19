@@ -31,6 +31,7 @@
     wifite2
     wireshark
     # System & USB
+    gnome-tweaks
     usbutils      # lsusb
     pciutils      # lspci
     file
