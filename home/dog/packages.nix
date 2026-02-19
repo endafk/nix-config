@@ -49,6 +49,7 @@
     yq-go
     # Apps
     bitwarden-desktop
+    localsend
     # Web
     firefox
     google-chrome
