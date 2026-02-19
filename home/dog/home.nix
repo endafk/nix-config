@@ -10,6 +10,7 @@
     vscode
     ripgrep
     jq
+    neovim
     
     # Term
     htop
@@ -17,6 +18,7 @@
     
     # Web
     firefox
+    google-chrome
   ];
 
   # Basic Git Config
