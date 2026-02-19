@@ -61,8 +61,12 @@
   users.users.dog = {
     isNormalUser = true;
     description = "dog";
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" ]; 
   };
+
+  # Enable fish at system level (adds it to /etc/shells)
+  programs.fish.enable = true;
 
   # Docker
   virtualisation.docker.enable = true;
