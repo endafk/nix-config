@@ -73,6 +73,47 @@
   # LocalSend (opens firewall port 53317 for discovery + transfer)
   programs.localsend.enable = true;
 
+  # nix-ld (lets pip/venv binaries find C libraries without patching)
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Core
+    stdenv.cc.cc.lib          # libstdc++ — needed by almost everything
+    zlib                      # compression (numpy, pandas, pip itself)
+
+    # Crypto & networking (cryptography, requests, urllib3, werkzeug)
+    openssl
+    libffi
+    curl
+
+    # Data/science (numpy, scipy, pandas, openpyxl)
+    bzip2
+    xz                        # lzma compression
+    readline
+    sqlite
+
+    # XML/HTML parsing (lxml, openpyxl, defusedxml)
+    libxml2
+    libxslt
+    expat
+
+    # Image handling (Pillow, matplotlib)
+    libGL
+    freetype
+    libpng
+    libjpeg
+    libtiff
+    lcms2
+    libwebp
+    openjpeg
+
+    # GUI / fonts (matplotlib backends, tkinter)
+    glib
+    icu
+    ncurses
+    tk
+    harfbuzz
+  ];
+
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
