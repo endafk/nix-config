@@ -12,12 +12,12 @@
       "nixos" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./hosts/nixos/configuration.nix
+          ./hosts/nixos
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.dog = import ./home/dog/home.nix;
+            home-manager.users.dog = import ./home/dog;
           }
         ];
       };
