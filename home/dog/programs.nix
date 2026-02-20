@@ -37,17 +37,6 @@
   # Fish
   programs.fish = {
     enable = true;
-    plugins = [
-      {
-        name = "theme-lambda";
-        src = pkgs.fetchFromGitHub {
-          owner = "hasanozgan";
-          repo = "theme-lambda";
-          rev = "a7cb6dbaee9e9dcbe7fea02b92fc85fb2d278869";
-          sha256 = "1fc1h675gww2xd3jhm4iv2pki5k6j5nnyrmvfs943jx49r2xrhhs";
-        };
-      }
-    ];
     interactiveShellInit = ''
       # Disable greeting
       set -g fish_greeting
@@ -56,6 +45,48 @@
       bind \e\[A history-search-backward
       bind \e\[B history-search-forward
     '';
+  };
+
+  # Starship prompt (cross-shell, nerd font icons, git/k8s/language context)
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    settings = {
+      format = "$directory$git_branch$git_status$kubernetes$python$golang$nodejs$terraform$docker_context$cmd_duration$line_break$character";
+      character = {
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
+      };
+      directory = {
+        truncation_length = 3;
+        truncation_symbol = "…/";
+        style = "cyan bold";
+      };
+      git_branch = {
+        format = "on [$symbol$branch]($style) ";
+        style = "purple";
+      };
+      git_status = {
+        format = "[$all_status$ahead_behind]($style) ";
+        style = "red";
+      };
+      kubernetes = {
+        disabled = false;
+        format = "on [⎈ $context/$namespace]($style) ";
+        style = "blue";
+      };
+      cmd_duration = {
+        min_time = 2000;
+        format = "took [$duration]($style) ";
+        style = "yellow";
+      };
+      python.format = "via [\${symbol}\${version}]($style) ";
+      golang.format = "via [\${symbol}\${version}]($style) ";
+      nodejs.format = "via [\${symbol}\${version}]($style) ";
+      terraform.format = "via [\${symbol}\${version}]($style) ";
+      docker_context.format = "via [\${symbol}\${context}]($style) ";
+    };
   };
 
   # Tmux

@@ -10,6 +10,7 @@
       enable-hot-corners = false;
       clock-show-weekday = true;
       clock-show-seconds = false;
+      monospace-font-name = "JetBrainsMono Nerd Font 11";
     };
 
     # Touchpad (natural scroll, tap-to-click)
