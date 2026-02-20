@@ -27,6 +27,7 @@
   services.fwupd.enable = true;            # firmware updates via LVFS
   hardware.bluetooth.enable = true;        # ThinkPad bluetooth
   hardware.bluetooth.powerOnBoot = true;
+  hardware.graphics.extraPackages = [ intel-media-driver ];
 
   # Nix Store Cleanup
   nix.gc = {
@@ -181,6 +182,7 @@
   };
   # flatpak
   services.flatpak.enable = true;
+
 
   # Firewall — open port 8080 for local dev servers
   networking.firewall.allowedTCPPorts = [ 8080 ];
