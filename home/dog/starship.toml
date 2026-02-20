@@ -15,14 +15,14 @@ $character"""
 
 right_format = """\
 $status\
-[●](red)[●](yellow)[●](green)[●](blue) $username\
+[●](bold white)[●](bold white)[●](bold white)[●](bold white) $username\
 $hostname\
-$time [●](blue)[●](green)[●](yellow)[●](red)"""
+$time [●](bold white)[●](bold white)[●](bold white)[●](bold white)"""
 
 [character]
-success_symbol = "[●](red)[●](yellow)[●](green)[●](blue) "
-error_symbol = "[●](red)[●](red)[●](red)[●](red) "
-vimcmd_symbol = "[●](blue)[●](blue)[●](blue)[●](blue) "
+success_symbol = "[●](bold white)[●](bold white)[●](bold white)[●](bold white) "
+error_symbol = "[●](bold red)[●](bold red)[●](bold red)[●](bold red) "
+vimcmd_symbol = "[●](bold cyan)[●](bold cyan)[●](bold cyan)[●](bold cyan) "
 
 [status]
 disabled = false
