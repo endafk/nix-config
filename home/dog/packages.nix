@@ -35,6 +35,7 @@
     # OCR (needed by GNOME Text Grabber extension)
     (tesseract.override { enableLanguages = [ "eng" ]; })
     # System & USB
+    smartmontools  # SSD health monitoring (smartctl)
     gnome-tweaks
     usbutils      # lsusb
     pciutils      # lspci

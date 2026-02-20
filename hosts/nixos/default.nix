@@ -32,9 +32,16 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";                      # runs every week
-    options = "--delete-older-than 14d";   # remove generations older than 2 weeks
+    options = "--delete-older-than 7d";    # remove generations older than 1 week
   };
   nix.settings.auto-optimise-store = true; # dedup the store via hard links
+
+  # Coredump — cap storage so crash dumps don't eat disk
+  systemd.coredump.extraConfig = ''
+    Storage=external
+    MaxUse=128M
+    ProcessSizeMax=64M
+  '';
 
   # Networking
   networking.hostName = "nixos"; 
