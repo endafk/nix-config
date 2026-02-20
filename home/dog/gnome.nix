@@ -36,10 +36,5 @@
       show-hidden-files = true;
     };
 
-    # Night Light (easy on the eyes)
-    "org/gnome/settings-daemon/plugins/color" = {
-      night-light-enabled = true;
-      night-light-schedule-automatic = true;
-    };
   };
 }
