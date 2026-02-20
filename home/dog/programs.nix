@@ -62,8 +62,6 @@
     enableBashIntegration = true;
     settings = {
       format = builtins.concatStringsSep "" [
-        "$username"
-        "$hostname"
         "$directory"
         "$git_branch"
         "$git_status"
@@ -79,6 +77,13 @@
         "$character"
       ];
 
+      right_format = builtins.concatStringsSep "" [
+        "$status"
+        "$username"
+        "$hostname"
+        "$time"
+      ];
+
       # Prompt char — clean arrow, red on fail
       character = {
         success_symbol = "[❯](bold green)";
@@ -86,16 +91,33 @@
         vimcmd_symbol = "[❮](bold blue)";
       };
 
-      # Only show user@host over SSH
+      # Exit code on right side
+      status = {
+        disabled = false;
+        symbol = "✘ ";
+        format = "[$symbol$status]($style) ";
+        style = "bold red";
+      };
+
+      # user@host always visible on right side (like bash PS1)
       username = {
-        show_always = false;
+        show_always = true;
         format = "[$user]($style)@";
         style_user = "bold yellow";
+        style_root = "bold red";
       };
       hostname = {
-        ssh_only = true;
-        format = "[$hostname]($style) in ";
+        ssh_only = false;
+        format = "[$hostname]($style) ";
         style = "bold yellow";
+      };
+
+      # Clock
+      time = {
+        disabled = false;
+        format = "[ $time]($style)";
+        time_format = "%H:%M";
+        style = "#606060";
       };
 
       # Directory
@@ -115,27 +137,27 @@
       git_status = {
         format = "([$all_status$ahead_behind]($style) )";
         style = "bold red";
-        stashed = "≡";
-        ahead = "⇡\${count}";
-        behind = "⇣\${count}";
-        diverged = "⇕⇡\${ahead_count}⇣\${behind_count}";
-        conflicted = "=\${count}";
-        deleted = "✘\${count}";
-        renamed = "»\${count}";
-        modified = "!\${count}";
-        staged = "+\${count}";
-        untracked = "?\${count}";
+        stashed = " ";
+        ahead = "󰜸\${count}";
+        behind = "󰜯\${count}";
+        diverged = "󰃻\${ahead_count}󰜯\${behind_count}";
+        conflicted = "\${count}";
+        deleted = "󰆴\${count}";
+        renamed = "󰑕\${count}";
+        modified = "󰏫\${count}";
+        staged = "󰐗\${count}";
+        untracked = "󰋗\${count}";
       };
 
       # Infra
       kubernetes = {
         disabled = false;
-        symbol = "⎈ ";
+        symbol = "󱃾 ";
         format = "[$symbol$context(/$namespace)]($style) ";
         style = "bold blue";
       };
       docker_context = {
-        symbol = " ";
+        symbol = "󰡨 ";
         format = "[$symbol$context]($style) ";
         style = "blue";
         only_with_files = true;
@@ -229,8 +251,8 @@
       set -g status-style "fg=#a0a0a0,bg=default"
       set -g status-left "#[bold,fg=blue] #S "
       set -g status-left-length 20
-      set -g status-right "#[fg=#606060]%H:%M"
-      set -g status-right-length 10
+      set -g status-right "#[fg=#707070] #(whoami)@#h #[fg=#606060] %H:%M"
+      set -g status-right-length 40
 
       setw -g window-status-format "#[fg=#606060] #I:#W "
       setw -g window-status-current-format "#[bold,fg=green] #I:#W "
