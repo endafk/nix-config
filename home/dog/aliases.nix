@@ -8,10 +8,10 @@
     pacsearch = "nix search nixpkgs";
 
     # eza (ls replacement)
-    ls = "eza";
-    ll = "eza -l --git";
-    la = "eza -la --git";
-    lt = "eza --tree --level=2";
+    ls = "eza --icons";
+    ll = "eza -l --git --icons";
+    la = "eza -la --git --icons";
+    lt = "eza --tree --level=2 --icons";
 
     # bat (cat replacement)
     cat = "bat --plain";
