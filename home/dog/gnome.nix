@@ -40,28 +40,5 @@
       night-light-enabled = true;
       night-light-schedule-automatic = true;
     };
-
-    # Favourites — pin useful apps
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "org.gnome.Nautilus.desktop"
-        "firefox.desktop"
-        "google-chrome.desktop"
-        "code.desktop"
-        "org.gnome.Terminal.desktop"
-      ];
-    };
-
-    # Keybindings
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-      ];
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "Terminal";
-      command = "kgx";
-      binding = "<Super>t";
-    };
   };
 }
