@@ -33,7 +33,7 @@
     wifite2
     wireshark
     # OCR (needed by GNOME Text Grabber extension)
-    tesseract
+    (tesseract.override { languages = [ "eng" ]; })
     # System & USB
     gnome-tweaks
     usbutils      # lsusb
