@@ -94,7 +94,7 @@
       # Exit code on right side
       status = {
         disabled = false;
-        symbol = "✘ ";
+        symbol = " ";
         format = "[$symbol$status]($style) ";
         style = "bold red";
       };
@@ -115,7 +115,7 @@
       # Clock
       time = {
         disabled = false;
-        format = "[ $time]($style)";
+        format = " $time";
         time_format = "%H:%M";
         style = "#606060";
       };
@@ -125,7 +125,7 @@
         truncation_length = 4;
         truncate_to_repo = true;
         style = "bold cyan";
-        read_only = " 󰌾";
+        read_only = " ";
       };
 
       # Git
@@ -138,32 +138,32 @@
         format = "([$all_status$ahead_behind]($style) )";
         style = "bold red";
         stashed = " ";
-        ahead = "󰜸\${count}";
-        behind = "󰜯\${count}";
-        diverged = "󰃻\${ahead_count}󰜯\${behind_count}";
-        conflicted = "\${count}";
-        deleted = "󰆴\${count}";
-        renamed = "󰑕\${count}";
-        modified = "󰏫\${count}";
-        staged = "󰐗\${count}";
-        untracked = "󰋗\${count}";
+        ahead = "⇡\${count}";
+        behind = "⇣\${count}";
+        diverged = "⇡\${ahead_count}⇣\${behind_count}";
+        conflicted = "=\${count}";
+        deleted = "✘\${count}";
+        renamed = "»\${count}";
+        modified = "!\${count}";
+        staged = "+\${count}";
+        untracked = "?\${count}";
       };
 
       # Infra
       kubernetes = {
         disabled = false;
-        symbol = "󱃾 ";
+        symbol = "☸ ";
         format = "[$symbol$context(/$namespace)]($style) ";
         style = "bold blue";
       };
       docker_context = {
-        symbol = "󰡨 ";
+        symbol = " ";
         format = "[$symbol$context]($style) ";
         style = "blue";
         only_with_files = true;
       };
       terraform = {
-        symbol = "󱁢 ";
+        symbol = " ";
         format = "[$symbol$version]($style) ";
         style = "bold 105";
       };
