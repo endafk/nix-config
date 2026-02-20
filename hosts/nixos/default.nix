@@ -144,6 +144,34 @@
   # Make nix-ld libraries visible to Python dlopen() (numpy, pandas, etc.)
   environment.variables.LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
 
+  # Samba — expose ~/Documents/Shared_Folder as "nixos"
+  services.samba = {
+    enable = true;
+    openFirewall = true;                   # opens 139 + 445
+    settings = {
+      global = {
+        workgroup = "WORKGROUP";
+        "server string" = "nixos";
+        security = "user";
+        "map to guest" = "never";
+      };
+      nixos = {
+        path = "/home/dog/Documents/Shared_Folder";
+        browseable = "yes";
+        "read only" = "no";
+        "valid users" = "dog";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
+    };
+  };
+
+  # Samba discovery on the local network (wsdd)
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Firewall — open port 8080 for local dev servers
   networking.firewall.allowedTCPPorts = [ 8080 ];
 
