@@ -27,7 +27,6 @@
   services.fwupd.enable = true;            # firmware updates via LVFS
   hardware.bluetooth.enable = true;        # ThinkPad bluetooth
   hardware.bluetooth.powerOnBoot = true;
-  hardware.graphics.extraPackages = [ intel-media-driver ];
 
   # Nix Store Cleanup
   nix.gc = {
