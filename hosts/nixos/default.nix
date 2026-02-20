@@ -179,6 +179,8 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+  # flatpak
+  services.flatpak.enable = true;
 
   # Firewall — open port 8080 for local dev servers
   networking.firewall.allowedTCPPorts = [ 8080 ];
