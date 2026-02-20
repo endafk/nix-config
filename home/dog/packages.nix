@@ -23,6 +23,7 @@
     k9s
     lens
     awscli2
+    aws-sam-cli
     # Networking & Security
     bettercap
     mtr
