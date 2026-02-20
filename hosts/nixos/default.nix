@@ -171,6 +171,14 @@
     enable = true;
     openFirewall = true;
   };
+  # Cups For print Support
+  services.printing.enable = true;
+  # Avahi for resolution
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  }
 
   # Firewall — open port 8080 for local dev servers
   networking.firewall.allowedTCPPorts = [ 8080 ];
