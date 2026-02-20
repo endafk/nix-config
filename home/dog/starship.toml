@@ -15,14 +15,14 @@ $character"""
 
 right_format = """\
 $status\
-$username\
+[●](red)[●](yellow)[●](green)[●](blue) $username\
 $hostname\
-$time"""
+$time [●](blue)[●](green)[●](yellow)[●](red)"""
 
 [character]
-success_symbol = "[❯](bold green)"
-error_symbol = "[❯](bold red)"
-vimcmd_symbol = "[❮](bold blue)"
+success_symbol = "[●](red)[●](yellow)[●](green)[●](blue) "
+error_symbol = "[●](red)[●](red)[●](red)[●](red) "
+vimcmd_symbol = "[●](blue)[●](blue)[●](blue)[●](blue) "
 
 [status]
 disabled = false
@@ -52,10 +52,17 @@ truncation_length = 4
 truncate_to_repo = true
 style = "bold cyan"
 read_only = " "
+home_symbol = " ~"
+format = "[ $path]($style)[$read_only]($read_only_style) "
+
+[directory.substitutions]
+"Documents" = " Docs"
+"Downloads" = " Down"
+"Projects" = " Proj"
 
 [git_branch]
 symbol = " "
-format = "[$symbol$branch(:$remote_branch)]($style) "
+format = "[ $symbol$branch(:$remote_branch)]($style) "
 style = "bold purple"
 
 [git_status]
@@ -75,41 +82,41 @@ untracked = "?${count}"
 [kubernetes]
 disabled = false
 symbol = "☸ "
-format = "[$symbol$context(/$namespace)]($style) "
+format = "[ $symbol$context(/$namespace)]($style) "
 style = "bold blue"
 
 [docker_context]
 symbol = " "
-format = "[$symbol$context]($style) "
+format = "[ $symbol$context]($style) "
 style = "blue"
 only_with_files = true
 
 [terraform]
 symbol = " "
-format = "[$symbol$version]($style) "
+format = "[ $symbol$version]($style) "
 style = "bold 105"
 
 [python]
 symbol = " "
-format = "[$symbol$version($virtualenv)]($style) "
+format = "[ $symbol$version($virtualenv)]($style) "
 style = "bold yellow"
 
 [golang]
 symbol = " "
-format = "[$symbol$version]($style) "
+format = "[ $symbol$version]($style) "
 style = "bold cyan"
 
 [nodejs]
 symbol = " "
-format = "[$symbol$version]($style) "
+format = "[ $symbol$version]($style) "
 style = "bold green"
 
 [nix_shell]
 symbol = " "
-format = "[$symbol$state]($style) "
+format = "[ $symbol$state]($style) "
 style = "bold blue"
 
 [cmd_duration]
 min_time = 1_500
-format = "[took $duration]($style) "
+format = "[ took $duration]($style) "
 style = "bold yellow"
