@@ -178,7 +178,7 @@
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
-  }
+  };
 
   # Firewall — open port 8080 for local dev servers
   networking.firewall.allowedTCPPorts = [ 8080 ];
