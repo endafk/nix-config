@@ -4,7 +4,7 @@
   home.shellAliases = {
     # NixOS
     rebuild   = "sudo nixos-rebuild switch --flake /home/dog/nix-config#nixos";
-    update    = "nix flake update --flake /home/dog/nix-config";
+    update    = "sudo nix flake update --flake /home/dog/nix-config";
     pacsearch = "nix search nixpkgs";
 
     # eza (ls replacement)
