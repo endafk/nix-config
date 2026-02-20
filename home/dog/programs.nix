@@ -52,6 +52,12 @@
       set -g fish_color_comment brblack
       set -g fish_color_autosuggestion brblack
       set -g fish_color_valid_path --underline
+
+      # Fastfetch on first interactive shell (skip nested/tmux/vscode)
+      if status is-interactive; and not set -q FASTFETCH_SHOWN
+        set -gx FASTFETCH_SHOWN 1
+        fastfetch
+      end
     '';
   };
 
@@ -61,7 +67,8 @@
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
-  xdg.configFile."starship.toml".source = ./starship.toml;
+  xdg.configFile."starship.toml".source = ./config/starship.toml;
+  xdg.configFile."fastfetch/config.jsonc".source = ./config/fastfetch.jsonc;
 
   # Tmux
   programs.tmux = {
