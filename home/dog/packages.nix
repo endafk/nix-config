@@ -32,6 +32,8 @@
     traceroute
     wifite2
     wireshark
+    # OCR (needed by GNOME Text Grabber extension)
+    tesseract
     # System & USB
     gnome-tweaks
     usbutils      # lsusb
