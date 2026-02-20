@@ -49,6 +49,19 @@
   services.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Remove GNOME bloat
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany              # web browser
+    geary                 # email
+    gnome-music
+    gnome-tour
+    gnome-contacts
+    gnome-maps
+    totem                 # video player (we have vlc)
+    yelp                  # help viewer
+    simple-scan
+  ];
+
   # Audio (Pipewire is the only correct choice)
   security.rtkit.enable = true;
   services.pipewire = {
@@ -137,6 +150,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    git       # available before Home Manager activates
   ];
 
   system.stateVersion = "24.05"; 

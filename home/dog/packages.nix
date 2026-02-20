@@ -52,6 +52,9 @@
     # Term
     eza           # modern ls
     bat           # modern cat
+    delta         # modern diff (used by git)
+    fd            # modern find
+    trash-cli     # safe rm → trash
     htop
     lazydocker
     btop
