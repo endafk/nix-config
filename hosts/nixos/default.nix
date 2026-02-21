@@ -4,6 +4,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./adguard.nix
     ];
 
   # Bootloader (Standard systemd-boot)
@@ -185,6 +186,25 @@
 
   # Firewall — open port 8080 for local dev servers
   networking.firewall.allowedTCPPorts = [ 8080 ];
+
+  services.adguardhome = {
+  enable = true;
+  openFirewall = true; # Opens TCP/UDP 53 and TCP 3000 for the UI
+  };
+  # Force the local system to query the local AdGuard daemon
+  networking.nameservers = [ "127.0.0.1" ];
+
+  # Castrate NetworkManager so DHCP leases don't overwrite your DNS settings
+  networking.networkmanager.dns = "none";
+
+  # Kill systemd-resolved
+  services.resolved.enable = false;
+
+  # Force standard resolv.conf generation pointing strictly to AdGuard
+  environment.etc."resolv.conf".text = ''
+    nameserver 127.0.0.1
+    options edns0 trust-ad
+  '';
 
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
