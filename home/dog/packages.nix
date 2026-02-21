@@ -32,7 +32,7 @@
     nmap
     traceroute
     wifite2
-    netstat
+    unixtools.net-tools
     wireshark
     # OCR (needed by GNOME Text Grabber extension)
     (tesseract.override { enableLanguages = [ "eng" ]; })
