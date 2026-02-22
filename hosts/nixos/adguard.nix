@@ -2,7 +2,27 @@
 
 {
   services.adguardhome = {
-    enable = true;
+  enable = true;
+  host = "127.0.0.1"; # Opens TCP/UDP 53 and TCP 3000 for the UI
+  port = 3000;
+  };
+  # Force the local system to query the local AdGuard daemon
+  networking.nameservers = [ "127.0.0.1" ];
+
+  # Castrate NetworkManager so DHCP leases don't overwrite your DNS settings
+  networking.networkmanager.dns = "none";
+
+  # Kill systemd-resolved
+  services.resolved.enable = false;
+
+  # Force standard resolv.conf generation pointing strictly to AdGuard
+  environment.etc."resolv.conf".text = ''
+    nameserver 127.0.0.1
+    options edns0 trust-ad
+  '';
+
+
+  services.adguardhome = {
     settings = {
       dns = {
         upstream_dns = [
