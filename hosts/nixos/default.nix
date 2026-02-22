@@ -88,7 +88,9 @@
 
   # Enable fish at system level (adds it to /etc/shells)
   programs.fish.enable = true;
-
+  # Disable wait online service
+  # systemd.services.NetworkManager-wait-online.enable = False
+	
   # Docker
   virtualisation.docker.enable = true;
 
