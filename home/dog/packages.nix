@@ -77,5 +77,6 @@
     google-chrome
     onlyoffice-desktopeditors
     zeroad-unwrapped
+    claude-code
   ];
 }
