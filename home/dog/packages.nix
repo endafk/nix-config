@@ -75,5 +75,6 @@
     zapzap
     firefox
     google-chrome
+    onlyoffice-desktopeditors
   ];
 }
