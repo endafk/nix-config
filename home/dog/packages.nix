@@ -76,5 +76,6 @@
     firefox
     google-chrome
     onlyoffice-desktopeditors
+    zeroad-unwrapped
   ];
 }
