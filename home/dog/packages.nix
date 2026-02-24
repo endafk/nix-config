@@ -79,5 +79,6 @@
     zeroad-unwrapped
     claude-code
     kiro
+    kdePackages.kdenlive
   ];
 }
