@@ -2,8 +2,11 @@
   description = "NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    # Pinned to the 25.11 stable release branch
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    
+    # Home Manager MUST match the nixpkgs branch
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
