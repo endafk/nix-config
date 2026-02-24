@@ -207,6 +207,18 @@
     nameserver 127.0.0.1
     options edns0 trust-ad
   '';
+  # GPU
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # For Broadwell (5th gen) and newer. This is what your T480s needs (iHD).
+    ];
+  };
+
+  # Force the system to use the modern iHD driver
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
 
   # FLAKES CONFIG (Critical)
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
