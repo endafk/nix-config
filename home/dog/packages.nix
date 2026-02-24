@@ -78,5 +78,6 @@
     onlyoffice-desktopeditors
     zeroad-unwrapped
     claude-code
+    kiro
   ];
 }
