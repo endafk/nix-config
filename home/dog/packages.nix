@@ -62,6 +62,7 @@
     delta         # modern diff (used by git)
     fd            # modern find
     trash-cli     # safe rm → trash
+    zoxide        # smart cd with frecency
     htop
     lazydocker
     btop

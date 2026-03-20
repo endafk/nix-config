@@ -136,6 +136,14 @@
     '';
   };
 
+  # Zoxide (frecency-based cd replacement)
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+    options = [ "--cmd cd" ];
+  };
+
   # Direnv (auto-load .envrc per project)
   programs.direnv = {
     enable = true;
