@@ -65,6 +65,7 @@
     zoxide        # smart cd with frecency
     htop
     lazydocker
+    lazygit
     btop
     fastfetch
     tmux
