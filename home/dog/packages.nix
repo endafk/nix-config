@@ -6,9 +6,9 @@
     nerd-fonts.jetbrains-mono
     # Dev
     vscode
-    antigravity
     ripgrep
     jq
+    gh
     python3
     go
     nodejs
