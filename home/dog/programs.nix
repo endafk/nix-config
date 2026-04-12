@@ -37,6 +37,27 @@
   # Fish
   programs.fish = {
     enable = true;
+    shellAbbrs = {
+      # git
+      g    = "git";
+      ga   = "git add";
+      gaa  = "git add --all";
+      gc   = "git commit -m";
+      gca  = "git commit --amend --no-edit";
+      gco  = "git checkout";
+      gcb  = "git checkout -b";
+      gd   = "git diff";
+      gds  = "git diff --staged";
+      gl   = "git log --oneline --graph --decorate";
+      gp   = "git push";
+      gpf  = "git push --force-with-lease";
+      gpl  = "git pull";
+      gs   = "git status -sb";
+      gst  = "git stash";
+      gstp = "git stash pop";
+      grb  = "git rebase";
+      grbi = "git rebase -i";
+    };
     interactiveShellInit = ''
       # Silence
       set -g fish_greeting
