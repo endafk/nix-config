@@ -56,6 +56,9 @@
     obs-studio
     parabolic     # yt-dlp frontend
     gapless       # music player
+    # Clipboard
+    wl-clipboard  # wl-copy / wl-paste for Wayland
+    cliphist      # clipboard history daemon
     # Term
     eza           # modern ls
     bat           # modern cat
