@@ -138,6 +138,7 @@
 
     # GUI / fonts (matplotlib backends, tkinter)
     glib
+    gobject-introspection  # gi python bindings (gi.repository.*)
     icu
     ncurses
     tk
