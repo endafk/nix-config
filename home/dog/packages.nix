@@ -14,6 +14,7 @@
     nodejs
     yarn
     pnpm
+    pinta
     # DevOps / SRE
     kubectl
     kubernetes-helm
