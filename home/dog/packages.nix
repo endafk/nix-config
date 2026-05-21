@@ -51,7 +51,7 @@
     p7zip
     # Media
     ffmpeg
-    vlc
+    mpv
     obs-studio
     parabolic     # yt-dlp frontend
     gapless       # music player
