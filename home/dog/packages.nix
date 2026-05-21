@@ -72,9 +72,6 @@
     fastfetch
     tmux
     fzf
-    yq-go
-    # Apps
-    bitwarden-desktop
     # Web
     zapzap
     firefox
@@ -82,7 +79,6 @@
     onlyoffice-desktopeditors
     zeroad-unwrapped
     claude-code
-    kiro
     kdePackages.kdenlive
   ];
 }
