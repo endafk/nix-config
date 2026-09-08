@@ -104,8 +104,8 @@ Find available program modules: https://nix-community.github.io/home-manager/opt
 
 ## Common Gotchas
 
-- **Don't edit `hardware-configuration.nix`** — it's auto-generated. Regenerate with `nixos-generate-config`.
-- **`stateVersion` should never change** — it's not your NixOS version. It tells NixOS what defaults to use for backward compat. Leave it as-is.
+- **Don't edit `hardware-configuration.nix`**; it's auto-generated. Regenerate with `nixos-generate-config`.
+- **`stateVersion` should never change** . It tells NixOS what defaults to use for backward compat. Leave it as-is.
 - **Unfree packages** need `nixpkgs.config.allowUnfree = true` (already set).
 - **After `nix flake update`**, always rebuild to apply the new versions.
 - **If a rebuild fails**, your system stays on the old working config. Nothing breaks.
